@@ -11,5 +11,7 @@ namespace HSJPersonal.Data
         }
 
         public DbSet<Contact> Contact { get; set;} = default!; 
+
+        public DbSet<Product> products { get; set;} = default!;
     }
 }

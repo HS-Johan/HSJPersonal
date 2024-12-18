@@ -3,6 +3,7 @@
 	ViewData["Title"] = "Admin Page";
 }
 
+@model IEnumerable<HSJPersonal.DataModels.Contact>
 
 <div class="card">
 
@@ -19,7 +20,7 @@
 		</div>
 	</div>
 
-	<div class=" card-body  ">
+	<div class="card-body">
 
 
 		<table class="table table-hover">
@@ -32,9 +33,31 @@
 					<th>Action</th>
 				</tr>
 			</thead>
+
 			<tbody>
 
+				@{
+					int serial = 1;
+					foreach (var data in Model)
+					{
+
+						<tr>
+							<td>@serial</td>
+							<td>@data.Name</td>
+							<td>@data.Email</td>
+							<td>@data.PhoneNumber</td>
+							<td>
+								<a class="btn btn-info" asp-action="ContactEdit" asp-route-id="@data.Id">Info</a>
+								<a class="btn btn-danger" asp-action="ContactDelete" asp-route-id="@data.Id">Delete</a>
+
+							</td>
+						</tr>
+						serial++;
+					}
+				}
+
 			</tbody>
+
 		</table>
 
 

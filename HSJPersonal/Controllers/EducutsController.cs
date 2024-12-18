@@ -73,5 +73,14 @@ namespace HSJPersonal.Controllers
                         
             return RedirectToAction("Contactus");
         }
+
+        public IActionResult ContactList()
+        {
+            var data = _context.Contact.ToList();
+
+            return View(data);
+        }
+
+
     }
 }
