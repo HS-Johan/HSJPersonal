@@ -8,5 +8,9 @@ namespace HSJPersonal.Controllers
         {
             return View();
         }
+        public IActionResult ContactList()
+        {
+            return View();
+        }
     }
 }
