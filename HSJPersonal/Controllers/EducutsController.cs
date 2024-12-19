@@ -88,11 +88,42 @@ namespace HSJPersonal.Controllers
                 return NotFound();
             }
 
-            var contact = _context.Contact.Find(id);
+            var contact = _context.Contact.FirstOrDefault( johan => johan.Id == id );
 
-            return View();
+            return View(contact);
         }
 
+        [HttpPost]
+        public IActionResult ContactEdit(Contact datamodel)
+        {
+            if (datamodel.PhoneNumber != null && datamodel.Email != null && datamodel.Name != null)
+            {
+                _context.Update(datamodel);
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("ContactList");
+        }
+
+        public IActionResult ContactDelete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var contact = _context.Contact.FirstOrDefault(johan => johan.Id == id);
+
+            if( contact == null )
+            {
+                return NotFound();
+            }
+
+            _context.Remove(contact);
+            _context.SaveChanges();
+
+            return RedirectToAction("ContactList");
+        }
 
     }
 }
