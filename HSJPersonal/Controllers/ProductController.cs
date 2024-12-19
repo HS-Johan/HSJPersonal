@@ -1,6 +1,7 @@
 ﻿using HSJPersonal.Data;
 using HSJPersonal.DataModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace HSJPersonal.Controllers
 {
@@ -28,6 +29,13 @@ namespace HSJPersonal.Controllers
             }
 
             return RedirectToAction("ProductForm");
+        }
+
+        public IActionResult ProductList()
+        {
+            var data = _context.products.ToList();
+
+            return View(data);
         }
 
     }

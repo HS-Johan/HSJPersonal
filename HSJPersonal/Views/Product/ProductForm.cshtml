@@ -6,49 +6,44 @@
 @model HSJPersonal.DataModels.Product
 
 <!-- Product section -->
-<div class="card">
+<section class="contact_section  long_section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 mx-5">
+				<div class="form_container">
+					<div class="heading_container">
+						<h2>
+							Add Product
+						</h2>
+					</div>
 
-	<div class="card-header">
-		<h3 class="card-title">Add New Product</h3>
-
-		<div class="card-tools">
-			<button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-				<i class="fas fa-minus"></i>
-			</button>
-			<button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-				<i class="fas fa-times"></i>
-			</button>
+					<form asp-controller="Product" asp-action="ProductSubmit">
+						<div>
+							<input required type="text" asp-for="ProductName" placeholder="Product Name" />
+						</div>
+						<div>
+							<input required type="number" asp-for="ProductPrice" placeholder="Product Price" />
+						</div>
+						<div>
+							<input required type="text" asp-for="ProductImage" placeholder="Product Image" />
+						</div>
+						<div>
+							<input required type="number" asp-for="ProductAmmount" placeholder="Product Ammount" />
+						</div>
+						@* <div>
+							<label>Is Active</label>
+							<input type="checkbox" asp-for="IsActive" placeholder="IsActive" />
+						</div> *@
+						<div class="btn_box">
+							<button>
+								Add
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
 		</div>
 	</div>
-
-	<div class="card-body">
-
-
-		<form asp-controller="Product" asp-action="ProductSubmit">
-			<div class="Table">
-				<input required type="text" asp-for="ProductName" placeholder="Product Name" />
-			</div>
-			<div>
-				<input required type="number" asp-for="ProductPrice" placeholder="Product Price" />
-			</div>
-			<div>
-				<input required type="text" asp-for="ProductImage" placeholder="Product Image" />
-			</div>
-			<div>
-				<input required type="number" asp-for="ProductAmmount" placeholder="Product Ammount" />
-			</div>
-			<div>
-				<label>Is Active</label>
-				<input type="checkbox" asp-for="IsActive" placeholder="IsActive" />
-			</div>
-			<div class="btn_box">
-				<button>
-					SEND
-				</button>
-			</div>
-		</form>
-
-	</div>
-
-</div>
+</section>
 <!-- end Product section -->
+
