@@ -81,6 +81,18 @@ namespace HSJPersonal.Controllers
             return View(data);
         }
 
+        public IActionResult ContactEdit(int? id)
+        {
+            if( id == null )
+            {
+                return NotFound();
+            }
+
+            var contact = _context.Contact.Find(id);
+
+            return View();
+        }
+
 
     }
 }

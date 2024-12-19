@@ -6,44 +6,45 @@
 @model HSJPersonal.DataModels.Product
 
 <!-- Product section -->
-<section class="contact_section  long_section">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8 mx-5">
-				<div class="form_container">
-					<div class="heading_container">
-						<h2>
-							Add Product
-						</h2>
-					</div>
 
-					<form asp-controller="Product" asp-action="ProductSubmit">
-						<div>
-							<input required type="text" asp-for="ProductName" placeholder="Product Name" />
-						</div>
-						<div>
-							<input required type="number" asp-for="ProductPrice" placeholder="Product Price" />
-						</div>
-						<div>
-							<input required type="text" asp-for="ProductImage" placeholder="Product Image" />
-						</div>
-						<div>
-							<input required type="number" asp-for="ProductAmmount" placeholder="Product Ammount" />
-						</div>
-						@* <div>
-							<label>Is Active</label>
-							<input type="checkbox" asp-for="IsActive" placeholder="IsActive" />
-						</div> *@
-						<div class="btn_box">
-							<button>
-								Add
-							</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
+<div class="card card-info col-8 justify-content-center m-0">
+	<div class="card-header">
+		<h3 class="card-title">
+			Add Product
+		</h3>
 	</div>
-</section>
+	<form asp-controller="Product" asp-action="ProductSubmit">
+		<div class="card-body">
+
+			<div class="form-group">
+				<lebel>Product Name</lebel>
+				<input required type="text" class="form-control border border-primary" asp-for="ProductName" />
+			</div>
+			<div class="form-group">
+				<lebel>Product Price</lebel>
+				<input required type="number" class="form-control border border-primary" asp-for="ProductPrice" />
+			</div>
+			<div class="form-group">
+				<lebel>Product Image</lebel>
+				<input required type="text" class="form-control border border-primary" asp-for="ProductImage" />
+			</div>
+			<div class="form-group">
+				<lebel>Product Ammount</lebel>
+				<input required type="number" class="form-control border border-primary" asp-for="ProductAmmount" />
+			</div>
+
+			<div class="form-check">
+				<input type="checkbox" class="form-check-input" asp-for="IsActive" />
+				<label class="form-check-label">Is Active</label>
+			</div>
+
+		</div>
+
+		<div class="card-footer">
+			<button type="submit" class="btn btn-primary">Add</button>
+		</div>
+	</form>
+</div>
+
 <!-- end Product section -->
 
