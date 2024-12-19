@@ -26,13 +26,13 @@
 		<table class="table table-hover">
 			<thead class="table-info">
 				<tr>
-					<th>Serial</th>
-					<th>Product Name</th>
-					<th>Product Price</th>
-					<th>Product Image</th>
-					<th>Product Ammount</th>
-					<th>Is Active</th>
-					<th>Action</th>
+					<th class="col-1">Serial</th>
+					<th class="col-2">Product Name</th>
+					<th class="col-2">Product Price</th>
+					<th class="col-2">Product Image</th>
+					<th class="col-2">Product Ammount</th>
+					<th class="col-1">Is Active</th>
+					<th class="col-2">Action</th>
 				</tr>
 			</thead>
 
@@ -48,12 +48,12 @@
 							<td>@data.ProductName</td>
 							<td>@data.ProductPrice</td>
 							<td>
-								<img src="@data.ProductImage" />
+								<img src="@data.ProductImage" style="width: 20%;" />
 							</td>
 							<td>@data.ProductAmmount</td>
 							<td>@data.IsActive</td>
 							<td>
-								<a class="btn btn-info" asp-action="ProductEdit" asp-route-id="@data.ProductId">Info</a>
+								<a class="btn btn-success" asp-action="ProductEdit" asp-route-id="@data.ProductId">Edit</a>
 								<a class="btn btn-danger" asp-action="ProductDelete" asp-route-id="@data.ProductId">Delete</a>
 							</td>
 						</tr>
