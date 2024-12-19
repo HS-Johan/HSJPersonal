@@ -28,7 +28,7 @@ namespace HSJPersonal.Controllers
 
             ViewBag.Furniture = new
             {
-                Title = "Our Furniture",
+                Title = "Our Product",
                 Content = "which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't an"
             };
 
@@ -54,7 +54,11 @@ namespace HSJPersonal.Controllers
             };
 
             ViewData["BlogtList"] = blogs;
-            return View();
+
+
+            var data = _context.products.Where(obj => obj.IsActive == true && obj.ProductAmmount > 0 ).ToList();
+
+            return View(data);
         }
 
         public IActionResult Contactus()
