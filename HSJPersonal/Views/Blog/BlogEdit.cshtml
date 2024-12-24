@@ -1,0 +1,38 @@
+﻿@{
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	ViewData["Title"] = "Blog Edit";
+}
+
+@model HSJPersonal.DataModels.Blog
+
+<div class="card card-info col-8 justify-content-center m-0">
+	<div class="card-header">
+		<h3 class="card-title">
+			Blog Edit
+		</h3>
+	</div>
+	<form asp-controller="Blog" asp-action="BlogEdit">
+		<div class="card-body">
+
+			<input asp-for="BlogId" hidden />
+
+			<div class="form-group">
+				<lebel>Blog Title</lebel>
+				<input required type="text" class="form-control border border-primary" asp-for="BlogTitle" />
+			</div>
+			<div class="form-group">
+				<lebel>Blog Content</lebel>
+				<input required type="text" class="form-control border border-primary" asp-for="BlogContent" />
+			</div>
+			<div class="form-group">
+				<lebel>Blog Thumbnail</lebel>
+				<input required type="text" class="form-control border border-primary" asp-for="BlogThumbnail" />
+			</div>
+
+		</div>
+
+		<div class="card-footer">
+			<button type="submit" class="btn btn-success">Update</button>
+		</div>
+	</form>
+</div>

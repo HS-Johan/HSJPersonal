@@ -1,0 +1,56 @@
+﻿@{
+	Layout = "~/Views/Shared/_EducutLayout .cshtml";
+	ViewData["Title"] = "EduCtu About Page";
+}
+
+@model IEnumerable<HSJPersonal.DataModels.Blog>
+
+<h1>Blog List</h1>
+
+<!-- blog section -->
+
+<section class="blog_section layout_padding">
+
+	<div class="container">
+
+		<div class="heading_container">
+			<h2>
+				Latest Blog
+			</h2>
+		</div>
+
+		<div class="row">
+			@{
+				if (Model != null)
+				{
+					foreach (var blog in Model)
+					{
+						<div class="col-md-6 col-lg-4 mx-auto">
+							<div class="box">
+								<div class="img-box">
+									<img src="@blog.BlogThumbnail">
+								</div>
+								<div class="detail-box">
+									<h5>
+										@blog.BlogTitle
+									</h5>
+									<p>
+										@blog.BlogContent
+									</p>
+									<a href="">
+										Read More
+									</a>
+								</div>
+							</div>
+						</div>
+					}
+				}
+
+			}
+		</div>
+
+	</div>
+
+</section>
+
+<!-- end blog section -->
