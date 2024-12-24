@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "~/Views/Shared/_EducutLayout .cshtml";
+    ViewData["Title"] = "EduCtu Blog Page";
+}
+
+<!-- blog section -->
+<section class="blog_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>
+                Latest Blog
+            </h2>
+        </div>
+        <div class="row">
+            @{
+                if (ViewData["BlogtList"] is IEnumerable<dynamic> BlogList)
+                {
+                    foreach (var blog in BlogList)
+                    {
+                        <div class="col-md-6 col-lg-4 mx-auto">
+                            <div class="box">
+                                <div class="img-box">
+                                    <img src="~/images/@blog.Picture" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        @blog.Title
+                                    </h5>
+                                    <p>
+                                        @blog.Content
+                                    </p>
+                                    <a href="">
+                                        Read More
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                }
+            }
+
+
+        </div>
+    </div>
+</section>
+<!-- end blog section -->

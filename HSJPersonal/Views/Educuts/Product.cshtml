@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "~/Views/Shared/_EducutLayout .cshtml";
+    ViewData["Title"] = "EduCtu Home Page";
+}
+
+@model IEnumerable<HSJPersonal.DataModels.Product>
+
+<!-- furniture section -->
+<section class="furniture_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>
+                @ViewBag.Furniture.Title
+            </h2>
+            <p>
+                @ViewBag.Furniture.Content
+            </p>
+        </div>
+        <div class="row">
+
+            @{
+                if (Model != null)
+                {
+                    foreach (var product in Model)
+                    {
+                        <div class="col-md-6 col-lg-4">
+                            <div class="box">
+                                <div class="img-box">
+                                    <img src="@product.ProductImage" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <div class="price_box">
+                                        <h5>
+                                            @product.ProductName
+                                        </h5>
+                                        <h6>
+                                            In Stock: @product.ProductAmmount
+                                        </h6>
+                                    </div>
+                                    <div class="price_box">
+                                        <h6 class="price_heading">
+                                            <span>$</span> @product.ProductPrice
+                                        </h6>
+                                        <a href="">
+                                            Buy Now
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+            }
+
+
+        </div>
+    </div>
+</section>
+<!-- end furniture section -->
+

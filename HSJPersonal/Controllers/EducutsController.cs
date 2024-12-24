@@ -129,5 +129,39 @@ namespace HSJPersonal.Controllers
             return RedirectToAction("ContactList");
         }
 
+        public IActionResult About()
+        {
+            ViewBag.AboutUs = "The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.";
+
+            return View();
+        }
+
+        public IActionResult Blog()
+        {
+            var blogs = new List<dynamic>
+            {
+                new {Title="1914 translation by H. Rackham",Content= "The point of using Lorem Ipsum is that it has a more-or-less normal distribution", Picture ="b1.jpg"},
+                new {Title="The standard Lorem Ipsum passage",Content= "Duis aute irure dolor in reprehenderit in sunt in culpa qui officia deserunt laborum.", Picture ="b2.jpg"},
+                new {Title="Cicero in 45 BC",Content= "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit", Picture ="b3.jpg"},
+            };
+
+            ViewData["BlogtList"] = blogs;
+
+            return View();
+        }
+
+        public IActionResult Product()
+        {
+            ViewBag.Furniture = new
+            {
+                Title = "Our Product",
+                Content = "which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't an"
+            };
+
+            var data = _context.products.Where(obj => obj.IsActive == true && obj.ProductAmmount > 0).ToList();
+
+            return View(data);
+        }
+
     }
 }
