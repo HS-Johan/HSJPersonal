@@ -15,7 +15,9 @@ namespace HSJPersonal.Controllers
 
         public IActionResult Blog()
         {
-            return View();
+            var data = _context.Blog.ToList();
+
+            return View(data);
         }
 
         public IActionResult BlogCreate()
