@@ -1,0 +1,62 @@
+﻿@{
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	ViewData["Title"] = "Admin Page";
+}
+
+@model HSJPersonal.DataModels.Admin
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-body">
+				<table class="table table-bordered">
+					<tbody>
+
+						<tr>
+							<td>Name</td>
+							<td>@Model.AdminName</td>
+						</tr>
+						<tr>
+							<td>Phone</td>
+							<td>@Model.AdminPhone</td>
+						</tr>
+						<tr>
+							<td>Email</td>
+							<td>@Model.AdminEmail</td>
+						</tr>
+						<tr>
+							<td>Location</td>
+							<td>@Model.AdminLocation</td>
+						</tr>
+						<tr>
+							<td>About Us</td>
+							<td>@Model.AdminAboutUs</td>
+						</tr>
+						<tr>
+							<td>Facebook</td>
+							<td>@Model.AdminFacebook</td>
+						</tr>
+						<tr>
+							<td>Twitter</td>
+							<td>@Model.AdminTwitter</td>
+						</tr>
+						<tr>
+							<td>Linked In</td>
+							<td>@Model.AdminLinkedIn</td>
+						</tr>
+						<tr>
+							<td>Instagram</td>
+							<td>@Model.AdminInstagram</td>
+						</tr>
+
+						<tr>
+							<a class="btn btn-success" asp-action="AdminEdit" asp-route-id="@Model.AdminId">Edit</a>
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+

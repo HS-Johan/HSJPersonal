@@ -15,5 +15,7 @@ namespace HSJPersonal.Data
         public DbSet<Product> products { get; set;} = default!;
 
         public DbSet<Blog> Blog { get; set;} = default!;
+
+        public DbSet<Admin> Admin { get; set;} = default!;
     }
 }

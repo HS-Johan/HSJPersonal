@@ -15,9 +15,33 @@ namespace HSJPersonal.Controllers
 
         public IActionResult Blog()
         {
-            var data = _context.Blog.ToList();
+
+            var data = _context.Blog.Select(
+                b => new Blog
+                {
+                    BlogId = b.BlogId,
+                    BlogTitle = b.BlogTitle,
+                    BlogThumbnail = b.BlogThumbnail,
+
+                    BlogContent = b.BlogContent!=null && b.BlogContent.Length>150
+                    ? b.BlogContent.Substring(0, 150)
+                    : b.BlogContent
+                }
+                ).ToList();
 
             return View(data);
+        }
+
+        public IActionResult BlogPage(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var blog = _context.Blog.FirstOrDefault(johan => johan.BlogId == id);
+
+            return View(blog);
         }
 
         public IActionResult BlogCreate()
@@ -46,8 +70,8 @@ namespace HSJPersonal.Controllers
                     BlogTitle = b.BlogTitle,
                     BlogThumbnail = b.BlogThumbnail,
 
-                    BlogContent = b.BlogContent!=null && b.BlogContent.Length > 20 
-                    ? b.BlogContent.Substring(0 , 20) 
+                    BlogContent = b.BlogContent!=null && b.BlogContent.Length > 50
+                    ? b.BlogContent.Substring(0 , 50) 
                     : b.BlogContent
                 }
 

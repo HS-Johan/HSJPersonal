@@ -1,0 +1,58 @@
+﻿@{
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	ViewData["Title"] = "Admin Page";
+}
+
+@model HSJPersonal.DataModels.Admin
+
+<section class="contact_section  long_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form_container">
+                    <div class="heading_container">
+                        <h2>
+                            Admin Form
+                        </h2>
+                    </div>
+
+                    <form asp-controller="Admin" asp-action="AdminSubmit">
+                        <div>
+                            <input required type="text" asp-for="AdminName" placeholder="Your Name" />
+                        </div>
+                        <div>
+                            <input required type="text" asp-for="AdminPhone" placeholder="Phone Number" />
+                        </div>
+                        <div>
+                            <input required type="email" asp-for="AdminEmail" placeholder="Email" />
+                        </div>
+                        <div>
+                            <input required type="text" asp-for="AdminLocation" placeholder="Location" />
+                        </div>
+                        <div>
+                            <input required type="text" asp-for="AdminAboutUs" placeholder="About Us" />
+                        </div>
+                        <div>
+                            <input type="text" asp-for="AdminFacebook" placeholder="Facebook" />
+                        </div>
+                        <div>
+                            <input type="text" asp-for="AdminTwitter" placeholder="Twitter" />
+                        </div>
+                        <div>
+                            <input type="text" asp-for="AdminLinkedIn" placeholder="LinkedIn" />
+                        </div>
+                        <div>
+                            <input type="text" asp-for="AdminInstagram" placeholder="Instagram" />
+                        </div>
+                        <div class="btn_box">
+                            <button>
+                                Add
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
