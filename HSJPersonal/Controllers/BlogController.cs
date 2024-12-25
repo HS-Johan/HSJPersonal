@@ -28,7 +28,7 @@ namespace HSJPersonal.Controllers
         [HttpPost]
         public IActionResult BlogCreate(Blog blogmodel)
         {
-            if( blogmodel.BlogTitle != null )
+            if (blogmodel.BlogTitle != null)
             {
                 _context.Blog.Add(blogmodel);
                 _context.SaveChanges();
@@ -39,7 +39,21 @@ namespace HSJPersonal.Controllers
 
         public IActionResult BlogList()
         {
-            var data = _context.Blog.ToList(); 
+            var data = _context.Blog.Select(
+                b => new Blog
+                {
+                    BlogId = b.BlogId,
+                    BlogTitle = b.BlogTitle,
+                    BlogThumbnail = b.BlogThumbnail,
+
+                    BlogContent = b.BlogContent!=null && b.BlogContent.Length > 20 
+                    ? b.BlogContent.Substring(0 , 20) 
+                    : b.BlogContent
+                }
+
+                ).ToList();
+
+
 
             return View(data);
         }
