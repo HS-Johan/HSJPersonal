@@ -199,21 +199,21 @@
         </div>
         <div class="row">
             @{
-                if (ViewData["BlogtList"] is IEnumerable<dynamic> BlogList)
+                if (ViewData["BlogList"] is IEnumerable<HSJPersonal.DataModels.Blog> BlogList)
                 {
-                    foreach (var blog in BlogList)
+                    foreach (var data in BlogList)
                     {
                         <div class="col-md-6 col-lg-4 mx-auto">
                             <div class="box">
                                 <div class="img-box">
-                                    <img src="~/images/@blog.Picture" alt="">
+                                    <img src="@data.BlogThumbnail" alt="">
                                 </div>
                                 <div class="detail-box">
                                     <h5>
-                                        @blog.Title
+                                        @data.BlogTitle
                                     </h5>
                                     <p>
-                                        @blog.Content
+                                        @data.BlogContent
                                     </p>
                                     <a href="">
                                         Read More
