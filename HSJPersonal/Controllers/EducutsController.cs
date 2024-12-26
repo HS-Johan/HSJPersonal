@@ -46,18 +46,19 @@ namespace HSJPersonal.Controllers
             ViewData["ProductList"] = products;
 
             ViewBag.AboutUs = "The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.";
+                     
+            ViewData["BlogList"] = _context.Blog.Select(
+                b => new Blog
+                {
+                    BlogId = b.BlogId,
+                    BlogTitle = b.BlogTitle,
+                    BlogThumbnail = b.BlogThumbnail,
 
-            //var blogs = new List<dynamic>
-            //{
-            //    new {Title="1914 translation by H. Rackham",Content= "The point of using Lorem Ipsum is that it has a more-or-less normal distribution", Picture ="b1.jpg"},
-            //    new {Title="The standard Lorem Ipsum passage",Content= "Duis aute irure dolor in reprehenderit in sunt in culpa qui officia deserunt laborum.", Picture ="b2.jpg"},
-            //    new {Title="Cicero in 45 BC",Content= "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit", Picture ="b3.jpg"},
-            //};
-
-            //ViewData["BlogtList"] = blogs;
-
-            ViewData["BlogList"] = _context.Blog.ToList().Take(3);
-
+                    BlogContent = b.BlogContent != null && b.BlogContent.Length > 150
+                    ? b.BlogContent.Substring(0, 150)
+                    : b.BlogContent
+                }
+                ).ToList().Take(3);
 
             var data = _context.products.Where(obj => obj.IsActive == true && obj.ProductAmmount > 0 ).ToList().Take(3);
 

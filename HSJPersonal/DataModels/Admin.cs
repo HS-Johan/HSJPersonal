@@ -15,15 +15,5 @@ namespace HSJPersonal.DataModels
 
         public string? AdminLocation { get; set; }
 
-        public string? AdminAboutUs { get; set; }
-
-        public string? AdminFacebook { get; set; }
-
-        public string? AdminTwitter { get; set; }
-
-        public string? AdminLinkedIn { get; set; }
-
-        public string? AdminInstagram { get; set; }
-
     }
 }

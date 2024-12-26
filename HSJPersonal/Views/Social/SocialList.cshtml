@@ -3,13 +3,13 @@
 	ViewData["Title"] = "Product List";
 }
 
-@model IEnumerable<HSJPersonal.DataModels.Product>
+@model IEnumerable<HSJPersonal.DataModels.Social>
 
 <div class="card">
 
 	<div class="card-header">
 
-		<h3 class="card-title">Title</h3>
+		<h3 class="card-title">Social</h3>
 
 		<div class="card-tools">
 			<button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -29,11 +29,9 @@
 			<thead class="table-info">
 				<tr>
 					<th class="col-1">Serial</th>
-					<th class="col-2">Product Name</th>
-					<th class="col-2">Product Price</th>
-					<th class="col-2">Product Image</th>
-					<th class="col-2">Product Ammount</th>
-					<th class="col-1">Is Active</th>
+					<th class="col-2">Social</th>
+					<th class="col-1">Icon</th>
+					<th class="col-6">Link</th>
 					<th class="col-2">Action</th>
 				</tr>
 			</thead>
@@ -45,20 +43,18 @@
 					foreach (var data in Model)
 					{
 
-						<tr>
-							<td>@serial</td>
-							<td>@data.ProductName</td>
-							<td>@data.ProductPrice</td>
-							<td>
-								<img src="@data.ProductImage" style="width: 20%;" />
-							</td>
-							<td>@data.ProductAmmount</td>
-							<td>@data.IsActive</td>
-							<td>
-								<a class="btn btn-success" asp-action="ProductEdit" asp-route-id="@data.ProductId">Edit</a>
-								<a class="btn btn-danger" asp-action="ProductDelete" asp-route-id="@data.ProductId">Delete</a>
-							</td>
-						</tr>
+								<tr>
+									<td>@serial</td>
+									<td>@data.SocialName</td>
+									<td class="social_box">
+										<i class="@data.SocialIcon" aria-hidden="true"></i>
+									</td>
+									<td>@data.SocialLink</td>
+									<td>
+									<a class="btn btn-success" asp-action="SocialEdit" asp-route-id="@data.SocialId">Edit</a>
+									<a class="btn btn-danger" asp-action="SocialDelete" asp-route-id="@data.SocialId">Delete</a>
+									</td>
+								</tr>
 						serial++;
 					}
 				}

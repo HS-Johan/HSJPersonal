@@ -17,5 +17,7 @@ namespace HSJPersonal.Data
         public DbSet<Blog> Blog { get; set;} = default!;
 
         public DbSet<Admin> Admin { get; set;} = default!;
+
+        public DbSet<Social> Social { get; set;} = default!;
     }
 }

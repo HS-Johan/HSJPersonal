@@ -26,7 +26,7 @@ namespace HSJPersonal.Controllers
         [HttpPost]
         public IActionResult AdminSubmit(Admin datamodel)
         {
-            if( datamodel.AdminName!=null && datamodel.AdminPhone!=null && datamodel.AdminEmail!=null && datamodel.AdminLocation!=null && datamodel.AdminAboutUs!=null )
+            if( datamodel.AdminName!=null && datamodel.AdminPhone!=null && datamodel.AdminEmail!=null )
             {
                 _context.Add(datamodel);
                 _context.SaveChanges();
@@ -34,17 +34,17 @@ namespace HSJPersonal.Controllers
 
             return RedirectToAction("AdminInfo");
         }
-
+        
         public IActionResult AdminInfo()
         {
-            var data = _context.Admin.FirstOrDefault(johan => johan.AdminId == 1);
+            var data = _context.Admin.FirstOrDefault();
 
             return View(data);
         }
 
         public IActionResult AdminEdit()
         {
-            var data = _context.Admin.FirstOrDefault(johan => johan.AdminId == 1);
+            var data = _context.Admin.FirstOrDefault();
 
             return View(data);
         }
@@ -52,7 +52,7 @@ namespace HSJPersonal.Controllers
         [HttpPost]
         public IActionResult AdminEdit(Admin datamodel)
         {
-            if (datamodel.AdminName != null && datamodel.AdminPhone != null && datamodel.AdminEmail != null && datamodel.AdminLocation != null && datamodel.AdminAboutUs != null)
+            if (datamodel.AdminName != null && datamodel.AdminPhone != null && datamodel.AdminEmail != null && datamodel.AdminLocation != null )
             {
                 _context.Update(datamodel);
                 _context.SaveChanges();

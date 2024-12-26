@@ -28,7 +28,7 @@ namespace HSJPersonal.Controllers
                 _context.SaveChanges();
             }
 
-            return RedirectToAction("ProductForm");
+            return RedirectToAction("ProductList");
         }
 
         public IActionResult ProductList()

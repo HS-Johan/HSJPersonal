@@ -5,7 +5,7 @@
 
 @model HSJPersonal.DataModels.Admin
 
-<div class="row">
+ <div class="row">
 	<div class="col-md-12">
 		<div class="card">
 			<div class="card-body">
@@ -28,26 +28,6 @@
 							<td>Location</td>
 							<td>@Model.AdminLocation</td>
 						</tr>
-						<tr>
-							<td>About Us</td>
-							<td>@Model.AdminAboutUs</td>
-						</tr>
-						<tr>
-							<td>Facebook</td>
-							<td>@Model.AdminFacebook</td>
-						</tr>
-						<tr>
-							<td>Twitter</td>
-							<td>@Model.AdminTwitter</td>
-						</tr>
-						<tr>
-							<td>Linked In</td>
-							<td>@Model.AdminLinkedIn</td>
-						</tr>
-						<tr>
-							<td>Instagram</td>
-							<td>@Model.AdminInstagram</td>
-						</tr>
 
 						<tr>
 							<a class="btn btn-success" asp-action="AdminEdit" asp-route-id="@Model.AdminId">Edit</a>
@@ -58,5 +38,5 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> 
 

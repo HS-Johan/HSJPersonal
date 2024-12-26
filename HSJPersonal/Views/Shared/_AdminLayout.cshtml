@@ -14,6 +14,8 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="~/admin/dist/css/adminlte.min.css">
 
+    <!-- font awesome style -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
 
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="~/css/bootstrap.css" />
@@ -220,13 +222,42 @@
                                         <p>Admin Form</p>
                                     </a>
                                 </li>
-                            </ul> *@
+                            </ul>  *@
 
-                            <ul class="nav nav-treeview">
+                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a asp-controller="Admin" asp-action="AdminInfo" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Admin Info</p>
+                                    </a>
+                                </li>
+                            </ul> 
+                        </li>
+
+                        <!-- Social -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Social
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a asp-controller="Social" asp-action="AddSocial" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Social</p>
+                                    </a>
+                                </li>
+                            </ul> 
+
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a asp-controller="Social" asp-action="SocialList" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Social List</p>
                                     </a>
                                 </li>
                             </ul>

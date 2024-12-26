@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HSJPersonal.Migrations
 {
     [DbContext(typeof(HSJPersonalContext))]
-    [Migration("20241224104133_CreateBlog_24Dec24_v3")]
-    partial class CreateBlog_24Dec24_v3
+    [Migration("20241226083511_Social_26Dec24_v1")]
+    partial class Social_26Dec24_v1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,31 @@ namespace HSJPersonal.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("HSJPersonal.DataModels.Admin", b =>
+                {
+                    b.Property<int>("AdminId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AdminId"));
+
+                    b.Property<string>("AdminEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AdminLocation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AdminName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AdminPhone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AdminId");
+
+                    b.ToTable("Admin");
+                });
 
             modelBuilder.Entity("HSJPersonal.DataModels.Blog", b =>
                 {
@@ -43,7 +68,7 @@ namespace HSJPersonal.Migrations
 
                     b.HasKey("BlogId");
 
-                    b.ToTable("Blog2");
+                    b.ToTable("Blog");
                 });
 
             modelBuilder.Entity("HSJPersonal.DataModels.Contact", b =>
@@ -97,6 +122,28 @@ namespace HSJPersonal.Migrations
                     b.HasKey("ProductId");
 
                     b.ToTable("products");
+                });
+
+            modelBuilder.Entity("HSJPersonal.DataModels.Social", b =>
+                {
+                    b.Property<int>("SocialId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SocialId"));
+
+                    b.Property<string>("SocialIcon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SocialLink")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SocialName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SocialId");
+
+                    b.ToTable("Social");
                 });
 #pragma warning restore 612, 618
         }

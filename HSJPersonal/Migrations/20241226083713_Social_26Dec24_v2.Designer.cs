@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HSJPersonal.Migrations
 {
     [DbContext(typeof(HSJPersonalContext))]
-    [Migration("20241225163401_Admin_25Dec24_v2")]
-    partial class Admin_25Dec24_v2
+    [Migration("20241226083713_Social_26Dec24_v2")]
+    partial class Social_26Dec24_v2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,19 +32,7 @@ namespace HSJPersonal.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AdminId"));
 
-                    b.Property<string>("AdminAboutUs")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("AdminEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AdminFacebook")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AdminInstagram")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AdminLinkedIn")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AdminLocation")
@@ -54,9 +42,6 @@ namespace HSJPersonal.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AdminPhone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AdminTwitter")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("AdminId");
@@ -137,6 +122,28 @@ namespace HSJPersonal.Migrations
                     b.HasKey("ProductId");
 
                     b.ToTable("products");
+                });
+
+            modelBuilder.Entity("HSJPersonal.DataModels.Social", b =>
+                {
+                    b.Property<int>("SocialId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SocialId"));
+
+                    b.Property<string>("SocialIcon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SocialLink")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SocialName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SocialId");
+
+                    b.ToTable("Social");
                 });
 #pragma warning restore 612, 618
         }
