@@ -3,7 +3,7 @@
     ViewData["Title"] = "EduCtu Home Page";
 }
 
-@model IEnumerable<HSJPersonal.DataModels.Product>
+@model HSJPersonal.ViewModel.HomePageVM
 
 <!-- slider section -->
 <section class="slider_section long_section">
@@ -120,9 +120,9 @@
         <div class="row">
 
             @{
-                if ( Model != null )
+                if ( Model.products.Count() > 0 )
                 {
-                    foreach (var product in Model)
+                    foreach (var product in Model.products)
                     {
                         <div class="col-md-6 col-lg-4">
                             <div class="box">
@@ -199,9 +199,9 @@
         </div>
         <div class="row">
             @{
-                if (ViewData["BlogList"] is IEnumerable<HSJPersonal.DataModels.Blog> BlogList)
+                if( Model.blogs.Any() )
                 {
-                    foreach (var data in BlogList)
+                    foreach (var data in Model.blogs)
                     {
                         <div class="col-md-6 col-lg-4 mx-auto">
                             <div class="box">
