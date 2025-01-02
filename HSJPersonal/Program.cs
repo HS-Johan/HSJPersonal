@@ -3,11 +3,6 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//builder.Services.AddDbContext<HSJPersonalContext>(options => options.UseSqlServer(
-//    builder.Configuration.GetConnectionString("HSJConnection") ??
-//    throw new InvalidOperationException("Sorry Database Not found")
-//    ));
-
 builder.Services.AddDbContext<HSJPersonalContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("OurProjectisHeroConnection") ?? throw new InvalidOperationException("Database Can't Be found!!")
     )
