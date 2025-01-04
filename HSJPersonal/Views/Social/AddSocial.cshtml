@@ -1,43 +1,83 @@
 ﻿@{
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    ViewData["Title"] = "Admin Page";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	ViewData["Title"] = "Admin Page";
 }
 
 @model HSJPersonal.DataModels.Social
 
 <section class="contact_section  long_section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="form_container">
-                    <div class="heading_container">
-                        <h2>
-                            Add Social
-                        </h2>
-                    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="form_container">
+					<div class="heading_container">
+						<h2>
+							Add Social
+						</h2>
+					</div>
 
-                    <form asp-controller="Social" asp-action="SocialSubmit">
+					<div>
+						<div>
+							<input required type="text" class="form-control border border-info" placeholder="Social" id="SocialName" name="SocialName" />
+						</div>
+						<div>
+							<input required type="text" class="form-control border border-info" placeholder="Icon class" id="SocialIcon" name="SocialIcon" />
+						</div>
+						<div>
+							<input required type="text" class="form-control border border-info" placeholder="Link" id="SocialLink" name="SocialLink" />
+						</div>
 
-                        <div>
-                            <input required type="text" class="form-control border border-info" asp-for="SocialName" placeholder="Social" />
-                        </div>
-                        <div>
-                            <input required type="text" class="form-control border border-info" asp-for="SocialIcon" placeholder="Icon class" />
-                        </div>
-                        <div>
-                            <input required type="text" class="form-control border border-info" asp-for="SocialLink" placeholder="Link" />
-                        </div>
+						<div class="btn_box">
+							<button type="submit" id="SubmitForms">
+								Add
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
 
-                        <div class="btn_box">
-                            <button>
-                                Add
-                            </button>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-
-        </div>
-    </div>
+		</div>
+	</div>
 </section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+
+
+
+	$('#SubmitForms').click(function () {
+
+			alert("hi you clicked submitForm button");
+
+			 var formData = {
+				socialName : $('#SocialName').val(),
+				socialIcon : $('#SocialIcon').val(),
+				socialLink : $('#SocialLink').val()
+			 };
+
+			 console.log(FormData);
+		
+		// debugger;
+	
+		$.ajax({
+				url: '/Social/SocialSubmit',
+				type: 'POST',
+				data: formData,
+				success: function (obj) {
+					// Handle success response
+					Swal.fire({
+						title: obj.msg,
+						icon: "success",
+						draggable: true
+					});
+				},
+				error: function (xhr, status, error) {
+					// Handle error response
+					alert('Error saving social link.');
+				}
+			});
+
+	});
+</script>

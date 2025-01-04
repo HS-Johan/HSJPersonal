@@ -1,6 +1,7 @@
 ﻿using HSJPersonal.Data;
 using HSJPersonal.DataModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
 
 namespace HSJPersonal.Controllers
 {
@@ -19,15 +20,21 @@ namespace HSJPersonal.Controllers
         }
 
         [HttpPost]
-        public IActionResult SocialSubmit(Social datamodel)
+        public IActionResult SocialSubmit(Social FormData)
         {
-            if( datamodel.SocialName!=null && datamodel.SocialIcon!=null && datamodel.SocialLink!=null )
+            if (FormData.SocialName != null && FormData.SocialIcon != null && FormData.SocialLink != null)
             {
-                _context.Social.Add(datamodel);
+                _context.Social.Add(FormData);
                 _context.SaveChanges();
+
+                return Json(new { success = true, msg = "Data Saved!" });
+
+                //return Json(new { success = true, msg = "Data saved!" });
             }
 
-            return RedirectToAction("SocialList");
+            return Json(new { success = false, msg = "Not Saved!", sdf = "asdf" });
+
+            //return Json(new { success = false, msg = "not saved!", sdf = "asdf" });
         }
 
         public IActionResult SocialList()
@@ -80,5 +87,6 @@ namespace HSJPersonal.Controllers
 
             return RedirectToAction("SocialList");
         }
+
     }
 }
